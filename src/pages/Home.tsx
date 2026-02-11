@@ -1,6 +1,7 @@
 import Hero from '../components/Hero';
 import ClinicIntro from '../components/ClinicIntro';
 import TreatmentCard from '../components/TreatmentCard';
+import DoctorsSection from '../components/DoctorsSection';
 import Seo from '../components/Seo';
 import { FaTooth, FaGem, FaMagic, FaChild, FaTeeth, FaSmile } from 'react-icons/fa';
 
@@ -50,6 +51,7 @@ const Home = () => {
                 title="Dent Ege Diş Kliniği | Manisa Yunusemre Diş Hekimi ve Diş Tedavileri"
                 description="Manisa Yunusemre'de implant, diş beyazlatma, zirkonyum kaplama, gülüş tasarımı, ortodonti ve çocuk diş hekimliği için Dent Ege Diş Kliniği'nden randevu alabilirsiniz."
             />
+
             <Hero />
             <ClinicIntro />
 
@@ -80,6 +82,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/*  Yeni: Hekimlerimiz Bölümü */}
+            <DoctorsSection />
         </>
     );
 };
