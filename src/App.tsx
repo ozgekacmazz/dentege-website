@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Appointment from './pages/Appointment';
 import Blog from './pages/Blog';
 import ScrollToTop from './components/ScrollToTop';
+import BlogDetail from "./pages/BlogDetail";
 
 
 
@@ -23,6 +24,8 @@ function App() {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/iletisim" element={<Contact />} />
                     <Route path="/randevu" element={<Appointment />} />
+                    <Route path="/blog/:slug" element={<BlogDetail />} />
+
                 </Routes>
             </Layout>
         </Router>
