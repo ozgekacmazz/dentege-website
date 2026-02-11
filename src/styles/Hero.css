@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    height: 90vh;
+    height: 95vh;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -9,13 +9,16 @@
     align-items: center;
 }
 
+/* ESKİ PREMIUM DARK OVERLAY (2. görsel vibe) */
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+    inset: 0;
+    background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.70) 0%,
+            rgba(0, 0, 0, 0.48) 55%,
+            rgba(0, 0, 0, 0.22) 100%
+    );
 }
 
 .hero-content {
@@ -25,39 +28,70 @@
 }
 
 .hero-text {
-    max-width: 600px;
-    color: var(--color-white);
+    max-width: 650px;
+    color: #fff;
 }
 
+.hero-location {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Başlık */
 .hero-text h1 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: var(--color-white);
-    line-height: 1.1;
+    color: #fff;
+    line-height: 1.05;
+    text-shadow: 0 6px 28px rgba(0, 0, 0, 0.55);
 }
 
+/* Sıcak premium gold (2. görsel gibi) */
 .hero-text h1 span {
-    color: var(--color-secondary);
+    color: #d4af37;
     font-style: italic;
+    text-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
 }
 
 .hero-text p {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-bottom: 2.5rem;
-    color: #e2e8f0;
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 .hero-buttons {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Outline buton (şu anki gibi kalsın) */
+.btn-outline {
+    padding: 0.8rem 1.8rem;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: 0.25s ease;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #000;
 }
 
 @media (max-width: 768px) {
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
 
     .hero-text p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
