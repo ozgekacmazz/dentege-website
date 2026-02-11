@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
     <url>
         <loc>https://dentege.com.tr/</loc>
     </url>
+
     <url>
         <loc>https://dentege.com.tr/tedaviler</loc>
     </url>
+
     <url>
         <loc>https://dentege.com.tr/hakkimizda</loc>
     </url>
+
     <url>
         <loc>https://dentege.com.tr/iletisim</loc>
     </url>
+
     <url>
         <loc>https://dentege.com.tr/randevu</loc>
     </url>
+
+    <url>
+        <loc>https://dentege.com.tr/blog</loc>
+    </url>
+
+    <url>
+        <loc>https://dentege.com.tr/blog/dis-tasi-temizligi-detartraj-nedir</loc>
+    </url>
+
+    <url>
+        <loc>https://dentege.com.tr/blog/kanal-tedavisi-nedir-aci-tir-mi</loc>
+    </url>
+
 </urlset>
