@@ -3,6 +3,7 @@ import { useEffect } from "react";
 interface SeoProps {
   title: string;
   description?: string;
+  canonical?: string; // ✅ eklendi
 }
 
 const BASE_URL = "https://dentege.com.tr";
@@ -17,7 +18,7 @@ const upsertMeta = (selector: string, createAttrs: Record<string, string>) => {
   return el;
 };
 
-const Seo = ({ title, description }: SeoProps) => {
+const Seo = ({ title, description, canonical: canonicalProp }: SeoProps) => {
   useEffect(() => {
     // 1) Title
     document.title = title;
@@ -33,8 +34,14 @@ const Seo = ({ title, description }: SeoProps) => {
       metaDesc.content = description;
     }
 
-    // 3) Canonical
-    const canonicalUrl = `${BASE_URL}${window.location.pathname}`;
+    // ✅ 3) Canonical (prop varsa onu kullan, yoksa otomatik üret)
+    const canonicalUrl =
+        canonicalProp?.startsWith("http")
+            ? canonicalProp
+            : canonicalProp
+                ? `${BASE_URL}${canonicalProp.startsWith("/") ? "" : "/"}${canonicalProp}`
+                : `${BASE_URL}${window.location.pathname}`;
+
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
       canonical = document.createElement("link");
@@ -43,7 +50,7 @@ const Seo = ({ title, description }: SeoProps) => {
     }
     canonical.href = canonicalUrl;
 
-    // 4) OG URL (ÖNEMLİ: senin ekranda .com kalmış)
+    // 4) OG URL
     const ogUrl = upsertMeta('meta[property="og:url"]', { property: "og:url" });
     ogUrl.content = canonicalUrl;
 
@@ -56,7 +63,7 @@ const Seo = ({ title, description }: SeoProps) => {
       const ogDesc = upsertMeta('meta[property="og:description"]', { property: "og:description" });
       ogDesc.content = description;
     }
-  }, [title, description]);
+  }, [title, description, canonicalProp]);
 
   return null;
 };
