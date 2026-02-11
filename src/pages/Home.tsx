@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import ClinicIntro from '../components/ClinicIntro';
 import TreatmentCard from '../components/TreatmentCard';
 import DoctorsSection from '../components/DoctorsSection';
+import TrustSection from "../components/TrustSection";
 import Seo from '../components/Seo';
 import { FaTooth, FaGem, FaMagic, FaChild, FaTeeth, FaSmile } from 'react-icons/fa';
 
@@ -85,6 +86,8 @@ const Home = () => {
 
             {/*  Yeni: Hekimlerimiz Bölümü */}
             <DoctorsSection />
+            <TrustSection />
+
         </>
     );
 };
