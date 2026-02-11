@@ -19,7 +19,7 @@ const Hero = () => {
                     <h1>
                         Gülüşünüz,
                         <br />
-                        <span>En Değerli İmzanızdır.</span>
+                        <span>En Değerli İmzamızdır.</span>
                     </h1>
 
                     <p>

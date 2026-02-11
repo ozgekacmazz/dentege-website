@@ -66,8 +66,8 @@ const Contact = () => {
                                 <FaEnvelope />
                             </div>
                             <div>
-                                <h4 style={{ marginBottom: '0.5rem' }}>E-posta</h4>
-                                <p style={{ color: 'var(--color-text-light)' }}>info@dentege.com</p>
+                            <h4 style={{ marginBottom: '0.5rem' }}>E-posta</h4>
+                            <p style={{ color: 'var(--color-text-light)' }}>info@dentege.com.tr</p>
                             </div>
                         </div>
 

@@ -76,6 +76,49 @@ const Treatments = () => {
         }
     ];
 
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "İmplant tedavisi ağrılı mıdır?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text":
+                        "İmplant uygulaması lokal anestezi altında yapılır, bu nedenle işlem sırasında ağrı hissetmeniz beklenmez. Sonrasında oluşabilecek hafif hassasiyetler ise hekiminizin önereceği ağrı kesicilerle genellikle kısa sürede kontrol altına alınır."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Diş beyazlatma dişlerime zarar verir mi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text":
+                        "Uzman diş hekimi kontrolünde ve uygun dozlarda yapılan profesyonel beyazlatma işlemi diş minesine zarar vermez. İşlem sonrası oluşan geçici hassasiyet, kısa sürelidir ve koruyucu ürünlerle azaltılabilir."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Ortodontik tedavi için geç kalmış olabilir miyim?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text":
+                        "Ortodontik tedavi sadece çocuklara özel değildir; diş ve diş eti sağlığı uygun olan her yaştaki bireyde uygulanabilir. Erişkin hastalar için de tel tedavisi veya şeffaf plaklarla estetik ve fonksiyonel sonuçlar elde edilebilir."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Çocuğumu ilk ne zaman diş hekimine götürmeliyim?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text":
+                        "İlk süt dişinin sürmesinden itibaren, en geç 1 yaş civarında çocukların diş hekimi kontrolüne getirilmesi önerilir. Erken dönemde yapılan kontroller, hem çürüklerin önüne geçmeye hem de çocukların diş hekimine alışmasına yardımcı olur."
+                }
+            }
+        ]
+    };
+
     return (
         <div className="section-padding" style={{ backgroundColor: '#f9fafb' }}>
             <div className="container">
@@ -89,6 +132,12 @@ const Treatments = () => {
                         Özel Dent Ege olarak, ağız ve diş sağlığınızın her alanında, uzman hekimlerimiz ve modern ekipmanlarımızla hizmet veriyoruz.
                     </p>
                 </div>
+
+                {/* FAQ Structured Data */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
 
                 <div
                     style={{
