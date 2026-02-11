@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://dentege.com/</loc></url>
-    <url><loc>https://dentege.com/tedaviler</loc></url>
-    <url><loc>https://dentege.com/hakkimizda</loc></url>
-    <url><loc>https://dentege.com/iletisim</loc></url>
-    <url><loc>https://dentege.com/randevu</loc></url>
+    <url>
+        <loc>https://dentege.com.tr/</loc>
+    </url>
+    <url>
+        <loc>https://dentege.com.tr/tedaviler</loc>
+    </url>
+    <url>
+        <loc>https://dentege.com.tr/hakkimizda</loc>
+    </url>
+    <url>
+        <loc>https://dentege.com.tr/iletisim</loc>
+    </url>
+    <url>
+        <loc>https://dentege.com.tr/randevu</loc>
+    </url>
 </urlset>
