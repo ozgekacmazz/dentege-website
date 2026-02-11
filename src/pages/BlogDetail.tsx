@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
 import Seo from "../components/Seo";
-import "../styles/blog.css";
+import "../styles/Blog.css";
 
 const formatDate = (date: string) =>
     new Date(date).toLocaleDateString("tr-TR", {
