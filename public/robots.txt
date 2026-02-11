@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dentege.com/sitemap.xml
+Sitemap: https://dentege.com.tr/sitemap.xml
