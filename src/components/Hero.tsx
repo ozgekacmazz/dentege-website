@@ -5,11 +5,13 @@ import '../styles/Hero.css';
 const Hero = () => {
     return (
         <section className="hero" style={{ backgroundImage: `url(${heroImg})` }}>
-            <div className="hero-overlay" />
+            <div className="hero-overlay"></div>
 
             <div className="container hero-content">
                 <div className="hero-text">
-                    <span className="hero-location">Manisa Yunusemre&apos;de Modern Diş Hekimliği</span>
+          <span className="hero-location">
+            Manisa Yunusemre&apos;de Modern Diş Hekimliği
+          </span>
 
                     <h1>
                         Gülüşünüz,
@@ -18,8 +20,8 @@ const Hero = () => {
                     </h1>
 
                     <p>
-                        Özel Dent Ege Ağız ve Diş Sağlığı Polikliniği olarak modern teknolojimiz ve uzman hekim kadromuz ile
-                        sağlıklı ve estetik gülüşler tasarlıyoruz.
+                        Özel Dent Ege Ağız ve Diş Sağlığı Polikliniği olarak modern teknolojimiz ve uzman hekim
+                        kadromuz ile sağlıklı ve estetik gülüşler tasarlıyoruz.
                     </p>
 
                     <div className="hero-buttons">
