@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main style={{ minHeight: '80vh' }}>
+            <main style={{ minHeight: '80vh', paddingTop: '0.5rem' }}>
                 {children}
             </main>
             <Footer />
