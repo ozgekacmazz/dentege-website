@@ -1,4 +1,4 @@
-import introBg from '../assets/WhatsApp Image 2026-02-04 at 09.34.14.jpeg';
+import introBg from '../assets/hol.jpg';
 import { FaUserMd, FaTooth, FaBriefcaseMedical } from 'react-icons/fa';
 import '../styles/ClinicIntro.css';
 import { motion } from 'framer-motion';
