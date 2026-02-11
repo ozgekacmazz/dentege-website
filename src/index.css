@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
 
 :root {
-  --color-primary: #008080; /* Teal */
-  --color-primary-dark: #006666;
+  --color-primary: #0f766e;
+  --color-primary-dark: #115e59;
+
   --color-secondary: #c5a059; /* Gold */
   --color-accent: #f0fdfa; /* Light Teal bg */
-  --color-text: #333333;
-  --color-text-light: #666666;
+  --color-text: #1f2937;
+  --color-text-light: #4b5563;
   --color-white: #ffffff;
-  --color-bg: #f9fafb;
+  --color-bg: #f3f6f6;
   --color-danger: #ef4444;
+  --color-card: #ffffff;
+  --color-border: rgba(0,0,0,.06);
 
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Playfair Display', serif;
@@ -47,6 +50,11 @@ a {
   color: inherit;
   transition: all 0.3s ease;
 }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid rgba(0,128,128,.25);
+  outline-offset: 3px;
+}
+
 
 button {
   cursor: pointer;
@@ -93,6 +101,22 @@ button {
 .section-padding {
   padding: 4rem 1rem;
 }
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(15,118,110,.18); /* primary ile uyum */
+}
+
+
 
 @media (min-width: 768px) {
   .section-padding {
