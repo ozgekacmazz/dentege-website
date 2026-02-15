@@ -1,10 +1,12 @@
-import Hero from '../components/Hero';
-import ClinicIntro from '../components/ClinicIntro';
-import TreatmentCard from '../components/TreatmentCard';
-import DoctorsSection from '../components/DoctorsSection';
+import Hero from "../components/Hero";
+import ClinicIntro from "../components/ClinicIntro";
+import TreatmentCard from "../components/TreatmentCard";
+import DoctorsSection from "../components/DoctorsSection";
 import TrustSection from "../components/TrustSection";
-import Seo from '../components/Seo';
-import { FaTooth, FaGem, FaMagic, FaChild, FaTeeth, FaSmile } from 'react-icons/fa';
+import Seo from "../components/Seo";
+import { FaTooth, FaGem, FaMagic, FaChild, FaTeeth, FaSmile } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { blogPosts } from "../data/blogPosts";
 
 const Home = () => {
     const treatments = [
@@ -12,64 +14,124 @@ const Home = () => {
             title: "İmplant Tedavisi",
             desc: "Eksik dişlerinizi, çene yapınıza uygun planlanan titanyum implantlarla doğal diş görünümüne en yakın şekilde tamamlıyoruz.",
             icon: <FaTooth />,
-            link: "/tedaviler#implant"
+            link: "/tedaviler#implant",
         },
         {
             title: "Gülüş Tasarımı",
             desc: "Yüz hatlarınız, dudak formunuz ve diş etiniz birlikte değerlendirilerek size özel estetik gülüş tasarlıyoruz.",
             icon: <FaSmile />,
-            link: "/tedaviler#gulus-tasarimi"
+            link: "/tedaviler#gulus-tasarimi",
         },
         {
             title: "Zirkonyum Kaplama",
             desc: "Yüksek ışık geçirgenliğine sahip zirkonyum kaplamalar ile hem sağlam hem de doğal görünümlü dişler elde etmenize yardımcı oluyoruz.",
             icon: <FaGem />,
-            link: "/tedaviler#zirkonyum"
+            link: "/tedaviler#zirkonyum",
         },
         {
             title: "Diş Beyazlatma",
             desc: "Klinik ortamında kontrollü olarak uyguladığımız beyazlatma işlemleriyle dişlerinizin tonunu güvenle açıyoruz.",
             icon: <FaMagic />,
-            link: "/tedaviler#beyazlatma"
+            link: "/tedaviler#beyazlatma",
         },
         {
             title: "Ortodontik Tedavi",
             desc: "Çapraşık ve ayrık dişlerin, tel veya şeffaf plak tedavileriyle daha estetik ve sağlıklı bir hizalanmaya kavuşmasını sağlıyoruz.",
             icon: <FaTeeth />,
-            link: "/tedaviler#ortodonti"
+            link: "/tedaviler#ortodonti",
         },
         {
             title: "Çocuk Diş Hekimliği",
             desc: "0–13 yaş arası çocuklarımız için, onların dilinden anlayan ve korkuyu en aza indiren pedodonti hizmetleri sunuyoruz.",
             icon: <FaChild />,
-            link: "/tedaviler#pedodonti"
-        }
+            link: "/tedaviler#pedodonti",
+        },
     ];
+
+    const latestPosts = [...blogPosts]
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 3);
+
+    const formatTRLong = (date: string) =>
+        new Date(date).toLocaleDateString("tr-TR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        });
 
     return (
         <>
             <Seo
                 title="Dent Ege Diş Kliniği | Manisa Yunusemre Diş Hekimi ve Diş Tedavileri"
                 description="Manisa Yunusemre'de implant, diş beyazlatma, zirkonyum kaplama, gülüş tasarımı, ortodonti ve çocuk diş hekimliği için Dent Ege Diş Kliniği'nden randevu alabilirsiniz."
+                canonical="/"
+                ogType="website"
             />
 
             <Hero />
             <ClinicIntro />
 
-            <section className="section-padding" style={{ backgroundColor: '#f8fafc' }}>
+            {/* Blog (Internal link boost) */}
+            <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Tedavilerimiz</h2>
-                        <p style={{ color: '#64748b', maxWidth: '600px', margin: '0 auto' }}>
+                    <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+                        <h2 style={{ fontSize: "2.3rem", marginBottom: "0.8rem" }}>Blog</h2>
+                        <p style={{ color: "#64748b", maxWidth: "700px", margin: "0 auto" }}>
+                            Ağız ve diş sağlığıyla ilgili kısa, net ve faydalı içerikler.
+                        </p>
+                    </div>
+
+                    <div
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                            gap: "2rem",
+                        }}
+                    >
+                        {latestPosts.map((post) => (
+                            <div key={post.slug} className="blog-card">
+                                <span className="blog-date">{formatTRLong(post.date)}</span>
+                                <h3 style={{ marginTop: "0.5rem" }}>{post.title}</h3>
+                                <p>{post.excerpt}</p>
+
+                                <div className="blog-tags">
+                                    {post.tags.slice(0, 2).map((tag) => (
+                                        <span key={tag}>{tag}</span>
+                                    ))}
+                                </div>
+
+                                <Link to={`/blog/${post.slug}`} className="blog-read-more">
+                                    Yazıyı Oku →
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div style={{ textAlign: "center", marginTop: "2rem" }}>
+                        <Link to="/blog" className="blog-read-more" style={{ display: "inline-block" }}>
+                            Tüm blog yazıları →
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Tedaviler */}
+            <section className="section-padding" style={{ backgroundColor: "#f8fafc" }}>
+                <div className="container">
+                    <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+                        <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Tedavilerimiz</h2>
+                        <p style={{ color: "#64748b", maxWidth: "600px", margin: "0 auto" }}>
                             Modern diş hekimliğinin tüm imkanlarını kullanarak, ağız ve diş sağlığınız için geniş kapsamlı hizmetler sunuyoruz.
                         </p>
                     </div>
 
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '2rem'
-                    }}>
+                    <div
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                            gap: "2rem",
+                        }}
+                    >
                         {treatments.map((t, index) => (
                             <TreatmentCard
                                 key={index}
@@ -84,10 +146,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/*  Yeni: Hekimlerimiz Bölümü */}
             <DoctorsSection />
             <TrustSection />
-
         </>
     );
 };
