@@ -20,7 +20,9 @@ const BlogDetail = () => {
                 <div className="blog-detail-card">
                     <h1>Yazı bulunamadı</h1>
                     <p>Aradığın içerik kaldırılmış olabilir.</p>
-                    <Link className="blog-back" to="/blog">← Blog’a dön</Link>
+                    <Link className="blog-back" to="/blog">
+                        ← Blog’a dön
+                    </Link>
                 </div>
             </section>
         );
@@ -31,15 +33,47 @@ const BlogDetail = () => {
         .filter((p) => p.tags.some((t) => post.tags.includes(t)))
         .slice(0, 3);
 
+    const canonicalPath = `/blog/${post.slug}`;
+    const canonicalAbs = `https://dentege.com.tr/blog/${post.slug}`;
+
     return (
         <section className="container blog-detail">
             <Seo
                 title={post.title}
                 description={post.metaDescription}
+                canonical={canonicalPath}
+                ogType="article"
+                jsonLd={{
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    headline: post.title,
+                    description: post.metaDescription,
+                    datePublished: post.date,
+                    dateModified: post.date,
+                    mainEntityOfPage: {
+                        "@type": "WebPage",
+                        "@id": canonicalAbs,
+                    },
+                    author: {
+                        "@type": "Organization",
+                        name: "DentEge",
+                    },
+                    publisher: {
+                        "@type": "Organization",
+                        name: "DentEge",
+                        logo: {
+                            "@type": "ImageObject",
+                            url: "https://dentege.com.tr/android-chrome-512x512.png",
+                        },
+                    },
+                    image: ["https://dentege.com.tr/android-chrome-512x512.png"],
+                }}
             />
 
             <div className="blog-detail-top">
-                <Link className="blog-back" to="/blog">← Blog</Link>
+                <Link className="blog-back" to="/blog">
+                    ← Blog
+                </Link>
                 <span className="blog-detail-date">{formatDate(post.date)}</span>
             </div>
 
