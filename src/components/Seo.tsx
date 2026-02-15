@@ -91,9 +91,9 @@ const Seo = ({
     const canonical = upsertLink('link[rel="canonical"]', { rel: "canonical" });
     canonical.href = canonicalUrl;
 
-    // 4) Robots
+    // 4) Robots  ✅ FIX: noindex olunca follow kalsın
     const robots = upsertMeta('meta[name="robots"]', { name: "robots" });
-    robots.content = noindex ? "noindex, nofollow" : "index, follow";
+    robots.content = noindex ? "noindex, follow" : "index, follow";
 
     // 5) OG URL
     const ogUrl = upsertMeta('meta[property="og:url"]', { property: "og:url" });

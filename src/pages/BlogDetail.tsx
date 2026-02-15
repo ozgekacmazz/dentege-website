@@ -17,16 +17,21 @@ const BlogDetail = () => {
     if (!post) {
         return (
             <section className="container blog-detail">
+                <Seo
+                    title="Sayfa bulunamadı | DentEge"
+                    description="Aradığınız içerik bulunamadı."
+                    canonical="/blog"
+                    noindex
+                />
                 <div className="blog-detail-card">
                     <h1>Yazı bulunamadı</h1>
                     <p>Aradığın içerik kaldırılmış olabilir.</p>
-                    <Link className="blog-back" to="/blog">
-                        ← Blog’a dön
-                    </Link>
+                    <Link className="blog-back" to="/blog">← Blog’a dön</Link>
                 </div>
             </section>
         );
     }
+
 
     const related = blogPosts
         .filter((p) => p.slug !== post.slug)
@@ -78,6 +83,7 @@ const BlogDetail = () => {
             </div>
 
             <article className="blog-detail-card">
+
                 <h1 className="blog-detail-title">{post.title}</h1>
 
                 <p className="blog-detail-excerpt">{post.excerpt}</p>
